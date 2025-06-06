@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radar Chart com Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #radarChart {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Radar Chart – Exemplo</h2>
+  <canvas id="radarChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    const radarChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Comunicação', 'Liderança', 'Técnico', 'Criatividade', 'Colaboração', 'Pontualidade'],
+        datasets: [{
+          label: 'João',
+          data: [4, 3, 5, 4, 4, 5],
+          fill: true,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+        }, {
+          label: 'Maria',
+          data: [3, 4, 3, 5, 5, 4],
+          fill: true,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            angleLines: { display: true },
+            suggestedMin: 0,
+            suggestedMax: 5
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
